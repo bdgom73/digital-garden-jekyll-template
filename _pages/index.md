@@ -1,22 +1,33 @@
 ---
-tags:
-  - 스텔라툰
-sticker: emoji//1f3b5
+layout: page
+title: Home
+id: home
+permalink: /
 ---
 
-> [!LINK]
-> [스텔라툰 https://stellatone.xyz](https://stellatone.xyz) 
+# Welcome! 🌱
 
-안녕하세요. **스텔라톤 개발자 노트**에 오신 것을 진심으로 환영합니다. 스텔라톤은 스텔라이브 멤버의 유튜브 영상을 통해 사용자에게 음악을 제공하는 플랫폼으로, 여기에서는 버전 정보를 확인할 수 있습니다. 업데이트 내역을 통해 새로운 기능과 개선된 사항들을 손쉽게 찾아보실 수 있습니다. 
+<p style="padding: 3em 1em; background: #f5f7ff; border-radius: 4px;">
+  Take a look at <span style="font-weight: bold">[[Your first note]]</span> to get started on your exploration.
+</p>
 
-## 🎶 음악 목록
----
-[[스텔라이브 음악 목록]]
+This digital garden template is free, open-source, and [available on GitHub here](https://github.com/maximevaillancourt/digital-garden-jekyll-template).
 
-##  📃 이용약관
----
-[[스텔라톤 이용약관]]
+The easiest way to get started is to read this [step-by-step guide explaining how to set this up from scratch](https://maximevaillancourt.com/blog/setting-up-your-own-digital-garden-with-jekyll).
 
-## ℹ️ 버전정보
----
-![[Version 정보]]
+<strong>Recently updated notes</strong>
+
+<ul>
+  {% assign recent_notes = site.notes | sort: "last_modified_at_timestamp" | reverse %}
+  {% for note in recent_notes limit: 5 %}
+    <li>
+      {{ note.last_modified_at | date: "%Y-%m-%d" }} — <a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+  .wrapper {
+    max-width: 46em;
+  }
+</style>
